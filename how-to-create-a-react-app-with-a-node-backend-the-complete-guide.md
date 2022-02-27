@@ -1,6 +1,6 @@
-عندما تستخدم رياكت (ReactJS) في واجهة الموقع مع NodeJS (نود جي أس) في جهة الخادم (السيرفر)، ستحصل على مزيج قوي، يُمَكّـنُك من أن تصنع أي موقع تريده.
+رياكت في الواجهة (FrontEnd)، و NodeJS في جهة السيرفر (BackEnd)، هذا المزيج القوي سوف يمكنك من صنع أي موقع تريده.
 
-صمم هذا الدليل لمساعدتك على إنشاء مشروع مُتكامل (Full Stack)، وذلك بإستخدام مكتبة رياكت، و NodeJS بأبسط طريقة ممكنة.
+الدليل الآتي مصمم  لمساعدتك على إنشاء مشروع مُتكامل (Full Stack)، وذلك بإستخدام مكتبة رياكت، و NodeJS بأبسط طريقة ممكنة.
 
 لذلك دعنا نرى كيفية تجهيز المشروع بأكمله من البداية حتى إطلاق المشروع إلى الويب، وذلك بإستخدام رياكت و NodeJS,
 
@@ -76,14 +76,13 @@ Server listening on 3001
 ## الخطوة الثانية: إنشاء نهايات الروابط (EndPoint)
 > **Endpoint** هو مصطلح يعني حرفيًا نقطة النهاية، وفي السياق تقني في عالم الويب يكون معناها هو نهاية الرابط، على سبيل المثال `www.google.com/endpoint` نقطة النهاية هنا `/endpoint` هي المسار الذي يلي عنوان الموقع.
 
-We want to use our Node and Express server as an API, so that it can give our React app data, change that data, or do some other operation only a server can do.
+من خلال NodeJS ومكتبة Express سوف نقوم بعمل API سيرفر، بحيث يستطيع تطبيق رياكت الذي في الواجهة الحصول على البيانات عبره، وتعديلها، أو القيام ببعض العمليات من طرف الخادم (Server).  
 
-In our case, we will simply send our React app a message that says "Hello from server!" in a JSON object.
+في حالتنا سنقوم بشيء بسيط، سوف ندع رياكت تستقبل كائن JSON يحوي داخله رسالة تقول "Hello from server!" وستكون بالشكل الآتي `{ message: "Hello from server!" }`.
 
-The code below creates an endpoint for the route  `/api`.
+الكود أدناه هو ما سوف نستخدمه لأجل إنشاء Endpoint للمسار المحدد `/api`:
 
-If our React app makes a GET request to that route, we respond (using  `res`, which stands for response) with our JSON data:
-
+عندما تقوم رياكت بإرسال طلب من نوع "GET" لذلك المسار، سوف نقوم بإرسال رد يحتوي على بيانات كائن JSON  (وذلك عبر `res`، هي اختصار لكلمة response والتي تعني رد بالإنجليزية):
 ```js
 // server/index.js
 ...
@@ -97,13 +96,13 @@ app.listen(PORT, () => {
 });
 ```
 
-_Note: Make sure to place this above the  `app.listen`  function._
+_ملحوظة: تاكد دومًا من أن الدالة `app.listen` هي الأخيرة في الأسفل_
 
-Since we've made changes to our Node code, we need to restart our server.
+بما أننا قمنا بتعديل كود أحد الملفات في مشروع NodeJS فنحن بحاجة إلى إعادة تشغيل الخادم، يتم تطبيق التغيرات التي أجريناها. 
 
-To do that, end your start script in the terminal by pressing Command/Ctrl + C. Then restart it by running  `npm start`  again.
+ولفهعل ذلك ببساطة، نقوم بإيقاف السيرفر الذي شغلناه مسبًا في سطر الأوامر وذلك عن طريق ضغط زر CTL + C، أو Command + C لو كنت من مستخدي أجهزة Mac، وبعد ذلك نقوم بتشغيل السيرفر من جديد بكتابة الأمر `npm start` كما فعلنا في البداية.
 
-And to test this, we can simply visit  `http://localhost:3001/api`  in our browser and see our message:
+ولنتأكد من أن كل شيء على ما يرام، ببساطة نقوم بفتح الرابط `http://localhost:3001/api` في المتصفح، ونتأكد من ظهور نص كائن JSON الذي كتبناه:
 
 ![Clip 2](https://reedbarger.nyc3.digitaloceanspaces.com/how-to-create-a-react-app-with-a-node-backend/clip-2.gif)
 
