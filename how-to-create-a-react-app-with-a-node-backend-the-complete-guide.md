@@ -96,7 +96,7 @@ app.listen(PORT, () => {
 });
 ```
 
-_ملحوظة: تاكد دومًا من أن الدالة `app.listen` هي الأخيرة في الأسفل_
+_ملحوظة: تأكد دومًا من أن الدالة `app.listen` هي الأخيرة في الأسفل_
 
 بما أننا قمنا بتعديل كود أحد الملفات في مشروع NodeJS فنحن بحاجة إلى إعادة تشغيل الخادم، ليتم تطبيق التغيرات التي أجريناها. 
 
@@ -106,17 +106,17 @@ _ملحوظة: تاكد دومًا من أن الدالة `app.listen` هي ال
 
 ![Clip 2](https://reedbarger.nyc3.digitaloceanspaces.com/how-to-create-a-react-app-with-a-node-backend/clip-2.gif)
 
-## Step 3: Create your React frontend
+## الخطوة الثالثة: قم بإنشاء واجهة باستخدام مكتبة رياكت
 
-After creating our backend, let's move to the frontend.
+بعدما قمنا بإنشاء جهة الخادم, سنتقل الآن إلى الواجهة الأمامية.
 
-Open another terminal tab and use create-react-app to create a new React project with the name  `client`:
+قم بفتح نافذة طرفية "terminal" جديدة وبدأ بإنشاء مشروع جديد باستخدام `create-react-app` وأطلق عليه اسم  `client`:
 
 ```bash
 npx create-react-app client
 ```
 
-After that, we will have a React app with all of its dependencies installed.
+وبعد ذلك, سيكون لدينا تطبيق رياكت جاهز ومثبت مع كافة الإعتماديات
 
 The only change we have to make is to add a property called  `proxy`  to our package.json file.
 
